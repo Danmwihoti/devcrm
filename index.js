@@ -7,13 +7,15 @@ const PORT = process.env.PORT || 3000;
 const server = http.createServer((req, res) => {
   if (req.url === '/' || req.url === '/index.html') {
     const readmePath = path.join(__dirname, 'README.md');
-    fs.readFile(readmePath, 'utf8', (err, data) => {
+    const marked = require('marked');
+fs.readFile(readmePath, 'utf8', (err, data) => {
       if (err) {
         res.writeHead(500, {'Content-Type': 'text/plain'});
         return res.end('Error reading README');
       }
       // Simple HTML wrapper
-      const html = `<!DOCTYPE html><html><head><meta charset="utf-8"><title>devCRM</title><style>body{font-family:Arial,sans-serif;background:#f9f9f9;color:#333;margin:2rem;}h1{color:#2c3e50;}pre{background:#fff;padding:1rem;border:1px solid #ddd;border-radius:4px;}</style></head><body><pre style="font-family:monospace;white-space:pre-wrap;word-wrap:break-word;">${data}</pre></body></html>`;
+      const rendered = marked(data);
+const html = `<!DOCTYPE html><html><head><meta charset="utf-8"><title>devCRM</title><style>body{font-family:Arial,sans-serif;background:#f9f9f9;color:#333;margin:2rem;}h1{color:#2c3e50;}pre{background:#fff;padding:1rem;border:1px solid #ddd;border-radius:4px;}</style></head><body>${rendered}</body></html>`;
       res.writeHead(200, {'Content-Type': 'text/html'});
       res.end(html);
     });
