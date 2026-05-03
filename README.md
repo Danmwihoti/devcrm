@@ -8,6 +8,9 @@ A lightweight CRM (Customer Relationship Management) prototype built with Node.j
 - Simple JSON‑based storage (easy to swap for a DB)
 - Extensible command‑line interface
 
+## Deployed Demo
+[Live Demo – devCRM on Vercel](https://devcrm-rouge.vercel.app)
+
 ## Getting Started
 ```bash
 npm install
