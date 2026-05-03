@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "skills": {
+    "reddit-readonly": {
+      "version": "1.0.0",
+      "installedAt": 1771396713804
+    },
+    "aibtc": {
+      "version": "1.0.7",
+      "installedAt": 1774341148888
+    }
+  }
+}
