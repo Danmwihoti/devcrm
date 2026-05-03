@@ -13,7 +13,7 @@ const server = http.createServer((req, res) => {
         return res.end('Error reading README');
       }
       // Simple HTML wrapper
-      const html = `<!DOCTYPE html><html><head><meta charset="utf-8"><title>devCRM</title></head><body><pre style="font-family:monospace;white-space:pre-wrap;word-wrap:break-word;">${data}</pre></body></html>`;
+      const html = `<!DOCTYPE html><html><head><meta charset="utf-8"><title>devCRM</title><style>body{font-family:Arial,sans-serif;background:#f9f9f9;color:#333;margin:2rem;}h1{color:#2c3e50;}pre{background:#fff;padding:1rem;border:1px solid #ddd;border-radius:4px;}</style></head><body><pre style="font-family:monospace;white-space:pre-wrap;word-wrap:break-word;">${data}</pre></body></html>`;
       res.writeHead(200, {'Content-Type': 'text/html'});
       res.end(html);
     });
